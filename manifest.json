@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Fiverr Message Helper",
+  "version": "1.0",
+  "description": "Reads Fiverr messages and generates AI-powered responses.",
+  "icons": {
+    "48": "icons/icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "https://api.openai.com/",
+    "https://*.fiverr.com/*"
+  ],
+  "host_permissions": ["https://*.fiverr.com/*"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.fiverr.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "some-name@example.org"
+    }
+  }
+}
